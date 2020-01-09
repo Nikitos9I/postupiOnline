@@ -1,0 +1,9 @@
+mainPack/Main.class
+utils/Utils.class
+utils/Constants.class
+parserPack/ParserPDF.class
+readerPack/Reader.class
+models/ResultModel.class
+parserPack/PFR/Helper.class
+parserPack/ParserPDF$Pair.class
+utils/Utils$QueueImpl.class

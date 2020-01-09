@@ -1,7 +1,6 @@
 package mainPack;
 
-import models.ResultModel;
-import parserPack.ParserPDF;
+import parserPack.PFR.Helper;
 import readerPack.Reader;
 
 import java.io.IOException;
@@ -19,25 +18,28 @@ import java.util.List;
 
 public class Main {
 
-//    private static final String DIR = "/Users/nikitos/Desktop/forParsing/v7-p195-s58-un2659.pdf";
-    private static final String DIR = "/Users/nikitos/Desktop/forParsing";
+//    private static final String DIR = "/Users/nikita.savinov/Downloads/helper2/ежв 1с для программы.xlsx";
+//    private static final String DIR = "/Users/nikita.savinov/Downloads/helper/кредит 1с для программы.xlsx";
+    private static final String DIR = "/Users/nikita.savinov/Downloads/helper2";
 
     private void start() throws IOException {
         Reader reader = new Reader(DIR);
         PrintWriter writer = new PrintWriter("out.txt");
         List<Path> files = reader.getFiles();
 
-        int globalSize = files.size();
-        int counter = 0;
+//        int globalSize = files.size();
+//        int counter = 0;
 
-        for (Path file : files) {
-            System.err.println("Сделано " + ((++counter * 1.0) / globalSize));
-            ParserPDF parserPDF = new ParserPDF(file);
-            List<ResultModel> resultModelList = parserPDF.parse();
-            for (ResultModel resultModel : resultModelList) {
-                writer.println(resultModel);
-            }
-        }
+//        for (Path file : files) {
+//            System.err.println("Сделано " + ((++counter * 1.0) / globalSize));
+//            ParserPDF parserPDF = new ParserPDF(file);
+//            List<ResultModel> resultModelList = parserPDF.parse();
+//            for (ResultModel resultModel : resultModelList) {
+//                writer.println(resultModel);
+//            }
+//        }
+        Helper helper = new Helper(files, 0);
+        writer.println(helper.parse());
 
         writer.close();
     }
